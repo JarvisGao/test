@@ -165,12 +165,15 @@ def main():
         except Exception:
             continue
 
+        # text prepressing
         clean_text = clean_markdown(text)
         chunks = chunk_text(clean_text)
 
         for chunk in chunks:
+            # generate pairs
             pairs = generate_qa_pairs(chunk)
-            
+
+            # store source input
             for p in pairs:
                 p['source'] = file_path
                 
@@ -184,11 +187,12 @@ def main():
     # STAGE 2 augument data
     augmented_data = all_dataset[:]
     
-
+    
     for item in tqdm(all_dataset, desc="Augmenting"):
         
         augmented_data.append(item)
-        
+
+        # data augment
         variations = augment_pair(item)
         
         for var in variations:
