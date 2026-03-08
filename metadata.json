@@ -1,0 +1,5 @@
+{
+  "name": "FinQ&A",
+  "description": "A financial asset Q&A system with RAG and multi-agent capabilities.",
+  "requestFramePermissions": []
+}
